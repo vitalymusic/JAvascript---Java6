@@ -1,5 +1,5 @@
 let teksts1 = "Teksts 1",
-    teksts2 = 'Teksts 2',
+    teksts2 = 'ābols, bumbiers, mandarīns',
     teksts3 = `
         <h3>Teksts 3</h3>
         <div class="out">
@@ -31,3 +31,21 @@ let teksts1 = "Teksts 1",
 
     console.log(imgSrc2);
     document.write(imgSrc2);
+
+
+
+    document.write(teksts2[3],"<br>");
+    document.write(teksts2.slice(-5),"<br>");
+    console.log(teksts2.split(", "),"<br>");
+
+    document.write(teksts2.toUpperCase(),"<br>");
+    document.write(teksts2.toLowerCase(),"<br>");
+    document.write(teksts2.search("bum"),"<br>");
+    document.write(teksts2.replace("mandarīns","apelsīns"),"<br>");
+    document.write(teksts2.trim(),"<br>");
+    document.write(teksts2.repeat(5),"<br>");
+
+
+
+
+
