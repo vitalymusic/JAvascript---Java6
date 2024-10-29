@@ -1,4 +1,5 @@
 // Informācijas izvade pārlūkā
+{
 document.write("Te ir teksts");
 
 console.log("Te arī ir teksts");
@@ -29,5 +30,5 @@ document.write(masivs1[2]);
 
 console.log(masivs1,objekts);
 
-
+}
 
