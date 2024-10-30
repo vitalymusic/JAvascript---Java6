@@ -24,7 +24,7 @@ let teksts1 = "Teksts 1",
 
     // let imgSrc = "<img src=\"attels.jpg\" alt=\"attels\" width=\"200px\">"
 
-    let imgSrc = "<img src=\""+attels1.url+"\" alt=\""+attels1.name+"\" width=\""+attels1.width+"\">"
+    let imgSrc = "<img src=\""+attels1.url+"\" alt=\""+attels1.name+"\" width=\""+attels1.width+"\">";
 
 
     let imgSrc2 = `<img src="${attels1.url}" alt="${attels1.name}" width="${attels1.width}">`;
