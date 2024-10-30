@@ -25,10 +25,6 @@ let reizinajums = (a,b)=>{
     return atbilde;
 }
 
-
-
-
-
 // summa(3,6);
 // summa(56,90);
 // reizinajums(3,6);
