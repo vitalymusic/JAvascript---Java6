@@ -21,6 +21,8 @@ count = ()=>{
         }
 
 
+        // Pārrakstīt uz switch Case
+
 
 
 }
