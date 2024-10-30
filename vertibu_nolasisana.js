@@ -1,8 +1,13 @@
 count = ()=>{
     let val1 = +document.querySelector("#inp1").value,
-        val2 = +document.querySelector("#inp2").value;
+        val2 = +document.querySelector("#inp2").value,
+        darbiba = document.querySelector("#inp3").value;
 
         
+        
+
+
+
 }
 
 
