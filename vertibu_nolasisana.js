@@ -28,9 +28,9 @@ count = ()=>{
 }
 
 
-let saskaitisana  = (a,b)=>{return a+b};
-let reizinashana  = (a,b)=>{return a*b};
-let dalishana  = (a,b)=>{return a/b};
+let saskaitisana  = (a,b)=>a+b; //Atgriež vērtību 
+let reizinashana  = (a,b)=>{a*b};
+let dalishana  = (a,b)=>{a/b};
 let atnemshana  = (a,b)=>{return a-b};
 
 
