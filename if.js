@@ -24,8 +24,9 @@ if(a>=10){
 // Switch Case
 
 
-let dienasNumurs = 4;
+let dienasNumurs = 7;
 let dienasNosaukums = "";
+
 
 switch(dienasNumurs){
     case 1: dienasNosaukums = "Pirmdiena";break;
@@ -35,7 +36,11 @@ switch(dienasNumurs){
 
 }
 
-document.write(dienasNosaukums);
+
+// Ternārais operators
+
+
+document.write((dienasNumurs>0 && dienasNumurs<=7)?dienasNosaukums:"Diena neeksistē");
 
 
 
