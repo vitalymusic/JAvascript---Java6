@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <h1>Javascript notikumi</h1>
+    <p>teksts 1</p>
+    <p>teksts 2</p>
+    <p>teksts 3</p>
+    <img src="" alt="" width="250">
+
+    <div class="table">
+        <table border="1">
+
+        </table>
+    </div>
+
+    <textarea name="" id=""></textarea>
+    <button class="btn1">click</button>
+
+
+
+    <script>
+        // Elementu nolasīšana no DOM
+        // getElementById(), getElementsByClassName(), getElementsBy,getElementsByTagName()
+
+        // Jaunākas metodes
+        // querySelector(css_selektors)
+        // querySelectorAll(css_selectors)
+
+
+        let heading1 = document.querySelector('h1');
+        let rindkopas = document.querySelectorAll('p');
+
+
+
+        console.log(heading1,rindkopas);
+
+        heading1.onclick = (event)=>{
+            console.log(event);
+            document.body.style.backgroundColor = "blue";
+        }
+
+        heading1.ondblclick = (event)=>{
+            console.log(event);
+            document.body.style.backgroundColor = "";
+        }
+
+
+        for(rindkopa of rindkopas){
+            rindkopa.onmouseover = (event)=>{
+                // console.log(event.target.innerText);
+                heading1.innerText = event.target.innerText;
+            }
+        }
+
+
+        document.querySelector('textarea').oninput = (e)=>{
+            heading1.innerText = e.target.value;
+        }
+
+        // Pēc klikšķa uz pogas ('.btn1') nomainīt Heading1 teksta krāsu(color)
+
+
+
+        // Jaunu elementu pievienošana lapā
+
+
+        let attels2 = document.createElement("img");
+        attels2.src="attels2.jpg";
+        attels2.width="200";
+        attels2.alt = "Jauns attels";
+        attels2.classList.add("attels");
+
+        let attels3 = attels2.cloneNode();
+        attels3.src="attels3.jpg";
+
+        document.body.appendChild(attels3);
+        document.body.insertBefore(attels2,heading1);
+
+        heading1.remove();
+
+
+        // Tabulas datu izvade no masīva
+
+        let tabula = "";
+        let tabulasDati = [
+            ["vārds","uzvārds","epasts","tālrunis"],
+            ["Jānis","Zariņš", "janis@inbox.lv","222222222"],
+            ["Anna","Lapiņa","anna@inbox.lv","33333333"],
+            ["Vitālijs","Korabeļņikovs","vitalijs@inbox.lv","55555555"]
+        ]
+
+        for(let i = 0;i<tabulasDati.length;i++){ //izvada tabulas rindas
+            tabula+="<tr>";
+                for(let j=0;j<tabulasDati[i].length;j++){
+                    tabula+="<td>"+tabulasDati[i][j]+"</td>";
+                }
+
+            tabula+="</tr>";   
+        }
+        document.querySelector('table').innerHTML = tabula;
+        console.log(tabula);
+
+
+    </script>
+</body>
+</html>
