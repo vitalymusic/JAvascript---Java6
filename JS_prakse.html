@@ -17,6 +17,24 @@
             transition: .5s;
         }
 
+        /* tabs */
+
+        .tab_area{
+            display: flex;
+        }
+
+        .tab_butns{
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            justify-content: space-around;
+            padding: 30px;
+            
+        }
+
+
+
+
     </style>
 </head>
 <body>
@@ -33,11 +51,69 @@
         
     </nav>
 
+
+
+    <h1>Tabs</h1>
+
+    <div class="tab_area">
+        <div class="tab_butns">
+            <button class="tab_btn" data-tab="tab1">Tab1</button>
+            <button class="tab_btn" data-tab="tab2">Tab2</button>
+            <button class="tab_btn" data-tab="tab3">Tab3</button>
+        </div>
+        <div class="tab_content">
+            <div class="tab" id="tab1">
+                <h3>Pirmais teksts</h3>
+                <p>Pirmais teksts</p>
+            </div>
+            <div class="tab" id="tab2">
+                <h3>Otrais teksts teksts</h3>
+                <p>Otrais teksts</p>
+            </div>
+            <div class="tab" id="tab3">
+                <h3>Trešais teksts</h3>
+                <p>Trešais teksts</p>
+            </div>
+        </div>
+    </div>
+
+
     <script>
         // 1. Izvēlne 
         document.querySelector("#show_nav_btn").onclick = ()=>{
             document.querySelector(".links").classList.toggle("active");
         }
+
+        // 2. Tabs
+
+        let tab_butns = document.querySelectorAll('.tab_butns button');
+        let tab_content = document.querySelectorAll('.tab');
+
+
+        for(tab_butn of tab_butns ){
+            tab_butn.onclick = (e)=>{
+                for(tab_butn of tab_butns){tab_butn.style.background = ""}
+                e.target.style.background="lightblue";
+                // console.log(e.target.dataset.tab);
+                showTab(e.target.dataset.tab);
+
+
+            }
+        }
+
+        function showTab(tabId){
+            for(tab of tab_content){
+                tab.style.display = "none";
+            }
+            document.querySelector(`#${tabId}`).style.display = "block";
+        }
+
+        tab_butns[0].click();
+
+
+        // Attēlu galerija
+
+        
 
     </script>
 </body>
