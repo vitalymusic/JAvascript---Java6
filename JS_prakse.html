@@ -32,7 +32,11 @@
             
         }
 
-
+        .gallery{
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            gap: 15px;
+        }
 
 
     </style>
@@ -78,6 +82,11 @@
     </div>
 
 
+    <h1>Attēlu galerija</h1>
+
+    <div class="gallery"></div>
+
+
     <script>
         // 1. Izvēlne 
         document.querySelector("#show_nav_btn").onclick = ()=>{
@@ -111,8 +120,36 @@
         tab_butns[0].click();
 
 
-        // Attēlu galerija
+        // 3.Attēlu galerija
 
+        let atteluDati = [
+            {
+                src:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwFw6tWLf6KJ0DEFoFuY5clXYDTzQQrnNxuQ&s",
+                name:"Toyota"
+            },
+            {
+                src:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlyNkw8wQ4gD7H_M55_393hhZW8djdbgc26g&s",
+                name:"Honda"
+            },
+            {
+                src:"https://cdn.cheapism.com/images/081018_most_popular_cars_slide_6_fs.max-825x550.jpg",
+                name:"Chevrolet"
+            },
+            {
+                 src:"https://i.ytimg.com/vi/_youDwsqFn8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBSCmh2jWQeVLAfrS1j1FZgTeY7wg",
+                name:"Mini"
+            }
+        ]
+
+
+        for(attels of atteluDati){
+            document.querySelector('.gallery').innerHTML+=`
+                <div class="attels">
+                  <img src="${attels.src}" width="100%">
+                  <h5>${attels.name}</h5>  
+                </div>  
+            `;
+        }
         
 
     </script>
