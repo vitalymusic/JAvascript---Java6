@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .links{
+            /* display:none; */
+            position: relative;
+            left: -1000px;
+            transition: .5s;
+        }
+        .active{
+            /* display:block; */
+            left: 0px;
+            transition: .5s;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Izvēlne</h1>
+
+    <nav>
+        <button id="show_nav_btn">Menu</button>
+        <div class="links">
+            <a href="">Saite1</a>
+            <a href="">Saite2</a>
+            <a href="">Saite3</a>
+            <a href="">Saite4</a>
+        </div>
+        
+    </nav>
+
+    <script>
+        // 1. Izvēlne 
+        document.querySelector("#show_nav_btn").onclick = ()=>{
+            document.querySelector(".links").classList.toggle("active");
+        }
+
+    </script>
+</body>
+</html>
