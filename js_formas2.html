@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" name="check" id="">
+    <label for="">Atzīmē</label>
+    <br>
+    <select name="select" id="" disabled>
+        <option value="">1.variants</option>
+        <option value="">2.variants</option>
+        <option value="">3.variants</option>
+    </select>
+
+
+    <script>
+        document.querySelector("input[type='checkbox']").onchange = (e)=>{
+
+            // if(e.target.checked){
+            //     document.querySelector("select").removeAttribute("disabled");
+
+            // }else{
+            //     document.querySelector("select").disabled = "true";
+            // }
+            
+            e.target.checked?document.querySelector("select").removeAttribute("disabled"):document.querySelector("select").disabled = "true";
+
+        }
+    </script>
+</body>
+</html>
