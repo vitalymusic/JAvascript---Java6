@@ -59,13 +59,17 @@
         button:hover {
             background-color: #218838;
         }
+
+        .error{
+            border: 1px solid red;
+        }
         
     </style>
 </head>
 <body>
     <div class="container">
         <h2>User Registration</h2>
-        <form action="" method="">
+        <form action="" method="" >
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username">
@@ -87,5 +91,44 @@
             </div>
         </form>
     </div>
+
+
+    <script>
+        document.querySelector('form').onsubmit = (e)=>{
+            console.log(e);
+            e.preventDefault();
+            let username = document.querySelector('[name="username"]');
+            let email = document.querySelector('[name="email"]');
+            let password = document.querySelector('[name="password"]');
+            let confirmPassword = document.querySelector('[name="confirm-password"]');
+
+            let reg = /[a-z|0-9|\_\+]{3,}\@+[a-z]+\.+[a-z]/gm;
+
+            function showError(el,text){
+                let errorSpan = document.createElement("span");
+                errorSpan.innerText = text;
+                errorSpan.style.color = "red";
+                el.after(errorSpan);
+            }
+
+            if(username.value.length<3){
+                username.classList.add("error");
+                showError(username,"Pārbaudiet lauku!");    
+            }
+
+            if(!email.value.match(reg)){
+                email.classList.add("error");
+                showError(email,"Pārbaudiet epastu!");   
+            }
+
+
+
+
+
+
+
+        }
+
+    </script>
 </body>
 </html>
