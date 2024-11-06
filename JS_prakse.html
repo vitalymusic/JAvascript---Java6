@@ -145,12 +145,48 @@
         for(attels of atteluDati){
             document.querySelector('.gallery').innerHTML+=`
                 <div class="attels">
-                  <img src="${attels.src}" width="100%">
+                  <img src="${attels.src}" width="100%" onclick="showImage(this)">
                   <h3>${attels.name}</h3>  
                 </div>  
             `;
         }
-        
+
+        function showImage(el){
+            if(document.querySelector('.backdrop')){
+                document.querySelector('.backdrop').remove();
+            }
+            
+            console.log(el)
+            // 1. Pievienot body elementam DIV ar klasi backdrop (paslēpts)
+            // 2. Ievietot tukšu attēlu
+            // 3. Aizpilda src atribūtu ar vajadzīgo adresi 
+            // 4. Padara backdrop DIV redzamu
+
+
+            document.body.innerHTML+=`
+                <div class="backdrop" onclick="remove(this)">
+                    <img src="${el.src}" width="60%">
+                </div>    
+            `;
+        }
+
+        // let atteli = document.querySelectorAll('.attels img');
+
+        // for(attels2 of atteli){
+        //     attels2.addEventListener("click",(e)=>{
+        //         console.log(e);
+        //         showImage(e.target.src);
+        //     }) 
+                
+            
+        // }
+
+        function remove(el){
+            el.remove();
+        }
+        // document.body.onclick = (e)=>{
+        //     document.querySelector('.backdrop').remove();
+        // }
 
     </script>
 </body>
