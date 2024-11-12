@@ -36,7 +36,7 @@
 
                 for(button of buttons){
                     button.onclick = (e)=>{
-                        console.log(e.target.dataset.id);
+                        // console.log(e.target.dataset.id);
 
                         openUser(e.target.dataset.id)
                     }
@@ -90,13 +90,15 @@
                         return resp.json() 
                     })
                     .then((data)=>{
-                        console.log(data);
+                        // console.log(data);
                         dialog.innerHTML = `
                         <h1>${data.name}</h1>`
-
                         for(field in data){
+                            if(typeof field == "object"){
+                                // Uzrakstīt vēl vienu ciklu kas nolasa objekta īpašības
+                            }
                             dialog.innerHTML +=`
-                        ${field}:${data[field]}<br>`
+                        ${field} : ${data[field]}<br>`
                         }
 
                         dialog.innerHTML +=`
@@ -107,8 +109,6 @@
                     })
 
             }
-
-
             function closeDialog(elements){
                 elements.parentElement.close()
             }
