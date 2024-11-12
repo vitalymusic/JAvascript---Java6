@@ -17,7 +17,33 @@
     </form>
 
 
-    
+    <script>
+        let formElem = document.querySelector("#form");
+
+        formElem.onsubmit = (e)=>{
+            e.preventDefault();
+            data = new FormData(formElem);
+            fetch("https://getform.io/f/bvrryyqb",{
+                method: "POST",
+                body: data,
+                headers: {
+                    "Accept": "application/json",
+                },
+            })
+            .then((data)=>{return data.json()})
+            .then((data)=> {
+                if(data.success == true){
+                    formElem.innerHTML+=`
+                        <b>Formas dati ir veiksmīgi nosūtīti</b>
+                    `;
+                    formElem.reset();
+                }
+            })
+        }
+
+    </script>
+
+
     
 </body>
 </html>
