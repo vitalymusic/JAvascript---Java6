@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Get vaicajumi</h1>
+
+
+    <script>
+        // fetch() - vaicajumu veidošana ar JS
+
+        // AJAX - asinhronie vaicājumi
+
+
+        let url = "https://jsonplaceholder.typicode.com/users/";
+
+
+        fetch(url)
+            .then((resp)=>{
+                //return resp.text()
+                return resp.json()
+            })
+            .then((data)=>{
+                showUsers(data)
+            }).then(()=>{
+                let buttons = document.querySelectorAll('button');
+
+                for(button of buttons){
+                    button.onclick = (e)=>{
+                        console.log(e.target.dataset.id);
+                    }
+                }
+
+            })
+            // .catch()
+            // .finally(()=>{
+            //     alert("dati ir saņemti")
+            // })
+
+            
+            function showUsers(array){
+                // Kartina
+                // Tabula
+
+
+                let userTable = `
+                <table border="1" width="75%">`;
+                    userTable+=`
+                    <tr>
+                        <td>Vārds</td>
+                        <td>Epasts</td>
+                        <td>Tālrunis</td>
+                        <td>Darbības</td>
+                    </tr>    
+                    `;
+                    for(user of array){
+                        userTable+=`
+                    <tr>
+                        <td>${user.name}</td>
+                        <td>${user.email}</td>
+                        <td>${user.phone}</td>
+                        <td>
+                            <button data-id="${user.id}">
+                                Skatīt lietotāju
+                            </button>
+                        </td>
+                    </tr>` 
+                    }
+                    userTable+=`</table>`    
+
+                document.body.innerHTML+=userTable;    
+
+
+            }
+
+
+
+
+    </script>
+</body>
+</html>
