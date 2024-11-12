@@ -9,6 +9,12 @@
     <h1>Get vaicajumi</h1>
 
 
+
+
+    <dialog>
+       
+    </dialog>
+
     <script>
         // fetch() - vaicajumu veidošana ar JS
 
@@ -16,7 +22,7 @@
 
 
         let url = "https://jsonplaceholder.typicode.com/users/";
-
+        
 
         fetch(url)
             .then((resp)=>{
@@ -31,6 +37,8 @@
                 for(button of buttons){
                     button.onclick = (e)=>{
                         console.log(e.target.dataset.id);
+
+                        openUser(e.target.dataset.id)
                     }
                 }
 
@@ -72,9 +80,39 @@
                     userTable+=`</table>`    
 
                 document.body.innerHTML+=userTable;    
+            }
 
+            function openUser(userId){
+                let dialog = document.querySelector('dialog');
+
+                fetch(url+`${userId}`)
+                    .then((resp)=>{
+                        return resp.json() 
+                    })
+                    .then((data)=>{
+                        console.log(data);
+                        dialog.innerHTML = `
+                        <h1>${data.name}</h1>`
+
+                        for(field in data){
+                            dialog.innerHTML +=`
+                        ${field}:${data[field]}<br>`
+                        }
+
+                        dialog.innerHTML +=`
+                            <button onclick="closeDialog(this)">
+                                Aizvērt
+                            </button>`
+                        dialog.showModal();
+                    })
 
             }
+
+
+            function closeDialog(elements){
+                elements.parentElement.close()
+            }
+
 
 
 
